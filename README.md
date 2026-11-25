@@ -1,134 +1,65 @@
-# \# iFood Growth \& Portfolio Allocation Case (`ifood-growth-competition-case`)
-
-# 
-
-# \*\*Autor:\*\* Bernardo Akin Chiusoli Mendes  
-
-# \*\*GitHub:\*\* \[@bernardochiusoli](https://github.com/bernardochiusoli)  
-
-# 
-
-# Projeto analítico de alocação estratégica de recursos de crescimento sob restrição orçamentária de até \*\*-R$ 10,00M na Operating Margin\*\*, cobrindo diagnóstico exploratório das 20 praças (`Case\_Competição\_prático - Dados.csv`), segmentação por arquétipos operacionais, modelagem de impacto ancorada nos custos unitários reais, otimização exata via Programação Linear Inteira Mista (MILP), análise de sensibilidade em 27 cenários e consolidação de entregáveis executivos.
-
-# 
-
-# > \*\*Confidencialidade:\*\* Repositório contendo análises técnicas e modelagem desenvolvidas para o case prático de Growth \& Estratégia.
-
-# 
-
-# \---
-
-# 
-
-# \## Resumo Executivo e Resultados Consolidados (Base Real)
-
-# 
-
-# \### Diagnóstico da Base (`Case\_Competição\_prático - Dados.csv`)
-
-# \* \*\*Total de Praças Analisadas:\*\* 20 cidades (`City 1` a `City 20`)
-
-# \* \*\*GMV Base Total (12m):\*\* \*\*R$ 1.388,68M\*\* (`17.844,02 mil` pedidos | Ticket Médio Ponderado: \*\*R$ 77,82\*\*)
-
-# \* \*\*Margem de Contribuição Base:\*\* \*\*R$ 110,68M\*\* (`7,97%` ponderada)
-
-# \* \*\*Operating Margin Base:\*\* \*\*R$ 55,36M\*\* (`3,99%` ponderada)
-
-# \* \*\*Gargalo Estrutural Identificado:\*\* \*\*65,6% do GMV base\*\* está concentrado em praças operando acima da capacidade logística (`Saturação > 100%`, como `City 20` com `141,21%` e `City 17` com `131,38%`), exigindo \*\*destravamento de capacidade (oferta de entregadores)\*\* em vez de subsídio bruto de demanda.
-
-# 
-
-# \### Resultados do Portfólio Otimizado (12 Meses)
-
-# \* \*\*Praças Selecionadas:\*\* \*\*6 cidades\*\* (`City 3`, `City 17`, `City 2`, `City 18`, `City 6` e `City 4`)
-
-# \* \*\*Investimento Bruto Alocado:\*\* \*\*R$ 9,98M\*\* (respeitando o teto máximo de R$ 10,00M)
-
-# \* \*\*Pedidos Incrementais Líquidos:\*\* \*\*+371,11 mil pedidos\*\* (já descontada canibalização de `15%`)
-
-# \* \*\*GMV Incremental Projetado:\*\* \*\*+R$ 27,52M\*\* (\*\*ROI GMV de 2,76x\*\*)
-
-# \* \*\*Margem de Contribuição Incremental:\*\* \*\*+R$ 2,22M\*\*
-
-# \* \*\*Impacto Líquido na Operating Margin:\*\* \*\*-R$ 7,76M\*\* (folga de R$ 2,24M frente ao limite máximo de -R$ 10,00M)
-
-# \* \*\*Robustez (Análise de Sensibilidade):\*\* \*\*100,0% dos 27 cenários\*\* simulados (variações de elasticidade, custo unitário e canibalização) respeitam o guardrail de `-R$ 10,00M` na Operating Margin, com GMV incremental variando entre \*\*R$ 20,72M\*\* (pessimista extremo) e \*\*R$ 34,97M\*\* (otimista extremo).
-
-# 
-
-# \---
-
-# 
-
-# \## Arquitetura e Estrutura do Repositório
-
-# 
-
-# ```text
-
-# ifood-growth-competition-case/
-
-# ├── data/
-
-# │   ├── raw/
-
-# │   │   └── Case\_Competição\_prático - Dados.csv      # Base original real (20 praças, 15 variáveis)
-
-# │   └── processed/
-
-# │       ├── base\_validada.csv                        # Saída do Notebook 01 (saneamento PT-BR e KPIs)
-
-# │       ├── base\_segmentada.csv                      # Saída do Notebook 02 (arquétipos operacionais)
-
-# │       ├── base\_impacto.csv                         # Saída do Notebook 03 (simulação por alavanca)
-
-# │       └── base\_alocacao\_otimizada.csv              # Saída do Notebook 04 (portfólio ótimo MILP)
-
-# ├── notebooks/
-
-# │   ├── 01\_EDA.ipynb                                 # Análise exploratória, Pareto e auditoria de dados
-
-# │   ├── 02\_Arquetipos.ipynb                          # Segmentação estratégica e guardrails de saturação
-
-# │   ├── 03\_Impacto\_Alavancas.ipynb                   # Modelagem econômica com custos reais por cidade
-
-# │   ├── 04\_Otimizacao.ipynb                          # Otimização exata (scipy.optimize.milp) <= R$ 10M
-
-# │   ├── 05\_Sensibilidade.ipynb                       # Teste de estresse em 27 cenários combinados
-
-# │   └── 06\_Entregaveis.ipynb                         # Consolidação do Excel executivo e gráficos finais
-
-# ├── outputs/
-
-# │   ├── excel/
-
-# │   │   └── iFood\_Business\_Case\_Analitico\_Real.xlsx  # Workbook executivo multi-abas
-
-# │   ├── figures/
-
-# │   │   ├── 01\_pareto\_gmv.png                        # Curva de Pareto de GMV por praça
-
-# │   │   ├── 01b\_saturacao\_vs\_margem.png              # Matriz Saturação Logística vs. Operating Margin
-
-# │   │   ├── 02\_arquetipos\_operacionais.png           # Distribuição dos arquétipos estratégicos
-
-# │   │   ├── 03\_oportunidades\_por\_alavanca.png        # GMV incremental potencial por alavanca viável
-
-# │   │   ├── 04\_alocacao\_final.png                    # Portfólio ótimo selecionado
-
-# │   │   ├── 05\_sensibilidade.png                     # Dispersão dos 27 cenários de estresse
-
-# │   │   └── 06\_gmv\_incremental.png                   # Gráfico executivo final por praça e alavanca
-
-# │   └── reports/
-
-# │       ├── eda\_summary.json                         # KPIs consolidados da base real
-
-# │       └── sensibilidade\_cenarios.csv               # Tabela completa dos 27 cenários simulados
-
-# ├── .gitignore                                       # Arquivos ignorados pelo Git
-
-# ├── requirements.txt                                 # Dependências Python do projeto
-
-# └── README.md                                        # Documentação principal
-
+# iFood Growth & Portfolio Allocation Case
+
+**Bernardo Akin Chiusoli Mendes** · Business Analytics & Strategy | [GitHub](https://github.com/bernardochiusoli)
+
+Modelagem analítica e otimização de alocação de capital de crescimento sob restrição orçamentária de até **-R$ 10,00M na Operating Margin**, cobrindo diagnóstico operacional das 20 praças (`Case_Competição_prático - Dados.csv`), segmentação por arquétipos, modelagem econômica ancorada em custos unitários reais, programação linear inteira mista (MILP) e análise de sensibilidade em 27 cenários.
+
+> **Nota:** Repositório contendo a arquitetura analítica, notebooks auditáveis e entregáveis executivos desenvolvidos para o case prático de Growth & Estratégia.
+
+### 1. Diagnóstico da Base Real (`Case_Competição_prático - Dados.csv`)
+
+A auditoria das 20 praças (15 variáveis operacionais e financeiras) revela alta concentração de receita e um gargalo estrutural de capacidade logística nos horários de pico:
+
+| Métrica Consolidada (12 Meses) | Valor Auditado | Observação Operacional |
+| :--- | :---: | :--- |
+| **GMV Base Total** | **R$ 1.388,68M** | `City 20` concentra **45,78%** (`R$ 635,78M`); top 7 praças somam **83,79%** |
+| **Pedidos Base Totais** | **17.844,02 mil** | Ticket médio ponderado de **R$ 77,82** (`AOV Basket` médio de R$ 62,20) |
+| **Margem de Contribuição** | **R$ 110,68M** | **7,97%** ponderada sobre o GMV |
+| **Operating Margin** | **R$ 55,36M** | **3,99%** ponderada (variando de `-4,69%` em `City 18` a `11,21%` em `City 5`) |
+| **Gargalo de Saturação** | **65,6% do GMV** | 7 praças operam com **saturação > 100%** (ex.: `City 20` em `141,21%` e `City 17` em `131,38%`) |
+
+**Tese Estratégica (Oferta antes de Demanda):** Em praças operando acima de 100% de saturação, subsídios brutos de demanda (cupons/frete grátis) degradam margem e SLA. O modelo aplica guardrails rígidos que bloqueiam estímulos de demanda em cidades saturadas, direcionando capital para **destravamento de capacidade (incentivos a entregadores)** onde há gargalo e **captura seletiva de share** onde há folga logística e margem saudável.
+
+### 2. Resultados do Portfólio Otimizado (MILP)
+
+A otimização exata (`scipy.optimize.milp`) selecionou **6 praças complementares** dentro do limite orçamentário:
+
+| Indicador de Performance (12m) | Resultado Projetado | Guardrail / Referência |
+| :--- | :---: | :--- |
+| **Praças Selecionadas** | **6 cidades** | `City 3`, `City 17`, `City 2`, `City 18`, `City 6` e `City 4` |
+| **Investimento Bruto Alocado** | **R$ 9,98M** | Teto máximo de R$ 10,00M |
+| **Pedidos Incrementais Líquidos** | **+371,11 mil** | Já descontada canibalização de `15%` |
+| **GMV Incremental Projetado** | **+R$ 27,52M** | **ROI GMV de 2,76x** (`+1,98%` sobre o GMV base) |
+| **Margem de Contribuição Incremental** | **+R$ 2,22M** | Retorno operacional direto antes do custo de incentivo |
+| **Impacto Líquido na Operating Margin** | **-R$ 7,76M** | Folga de **R$ 2,24M** frente ao limite de `-R$ 10,00M` |
+| **Robustez (27 Cenários)** | **100,0% aprovados** | GMV incremental entre **R$ 20,72M** (pessimista) e **R$ 34,97M** (otimista) |
+
+### 3. Estrutura do Repositório
+
+<details>
+<summary><strong>Clique para expandir a arquitetura de diretórios e entregáveis</strong></summary>
+
+```text
+ifood-growth-competition-case/
+├── data/
+│   ├── raw/
+│   │   └── Case_Competição_prático - Dados.csv      # Base original real (20 praças, 15 variáveis)
+│   └── processed/
+│       ├── base_validada.csv                        # Saneamento PT-BR e KPIs canônicos (Notebook 01)
+│       ├── base_segmentada.csv                      # Arquétipos e elegibilidade operacional (Notebook 02)
+│       ├── base_impacto.csv                         # Simulação econômica por alavanca (Notebook 03)
+│       └── base_alocacao_otimizada.csv              # Portfólio ótimo MILP (Notebook 04)
+├── notebooks/
+│   ├── 01_EDA.ipynb                                 # Auditoria, Pareto de GMV e matriz de saturação
+│   ├── 02_Arquetipos.ipynb                          # Regras de segmentação e guardrails de oferta
+│   ├── 03_Impacto_Alavancas.ipynb                   # Modelagem financeira com custos reais por praça
+│   ├── 04_Otimizacao.ipynb                          # Otimização restrita (scipy.optimize.milp)
+│   ├── 05_Sensibilidade.ipynb                       # Teste de estresse em 27 cenários combinados
+│   └── 06_Entregaveis.ipynb                         # Geração do workbook Excel e gráficos executivos
+├── outputs/
+│   ├── excel/
+│   │   └── iFood_Business_Case_Analitico_Real.xlsx  # Workbook executivo multi-abas
+│   ├── figures/                                     # Gráficos analíticos de alta resolução (PNG)
+│   └── reports/                                     # Sumário JSON (EDA) e matriz de sensibilidade (CSV)
+├── requirements.txt
+└── README.md
