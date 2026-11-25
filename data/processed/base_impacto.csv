@@ -1,0 +1,81 @@
+alavanca,viavel_operacionalmente,motivo_bloqueio,custo_alavanca_m,pedidos_incrementais_k,gmv_incremental_m,margem_contribuicao_incremental_m,operating_margin_incremental_m,saturacao_pos_pct,roi_gmv,roi_margem,cidade,arquetipo_operacional,gmv_base_m,saturacao_base_pct,margem_base_pct,margem_contribuicao_pct
+Incentivos para Clientes,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,71.38,0.0,0.0,City 1,Defesa sem Guerra de Preço,22.12692,71.38,-0.01,8.16
+Frete Grátis,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,71.38,0.0,0.0,City 1,Defesa sem Guerra de Preço,22.12692,71.38,-0.01,8.16
+Alterações de Preço,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,71.38,0.0,0.0,City 1,Defesa sem Guerra de Preço,22.12692,71.38,-0.01,8.16
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,71.38,0.0,0.0,City 1,Defesa sem Guerra de Preço,22.12692,71.38,-0.01,8.16
+Incentivos para Clientes,False,Bloqueado para demanda (Bloqueio por Saturação (Baixa Materialidade)),0.0,0.0,0.0,0.0,0.0,168.3,0.0,0.0,City 10,Bloqueio por Saturação (Baixa Materialidade),3.343072,168.3,-3.58,7.49
+Frete Grátis,False,Bloqueado para demanda (Bloqueio por Saturação (Baixa Materialidade)),0.0,0.0,0.0,0.0,0.0,168.3,0.0,0.0,City 10,Bloqueio por Saturação (Baixa Materialidade),3.343072,168.3,-3.58,7.49
+Alterações de Preço,False,Bloqueado para demanda (Bloqueio por Saturação (Baixa Materialidade)),0.0,0.0,0.0,0.0,0.0,168.3,0.0,0.0,City 10,Bloqueio por Saturação (Baixa Materialidade),3.343072,168.3,-3.58,7.49
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,168.3,0.0,0.0,City 10,Bloqueio por Saturação (Baixa Materialidade),3.343072,168.3,-3.58,7.49
+Incentivos para Clientes,False,Bloqueado para demanda (Bloqueio por Saturação (Baixa Materialidade)),0.0,0.0,0.0,0.0,0.0,147.87,0.0,0.0,City 11,Bloqueio por Saturação (Baixa Materialidade),16.457522,147.87,6.21,7.78
+Frete Grátis,False,Bloqueado para demanda (Bloqueio por Saturação (Baixa Materialidade)),0.0,0.0,0.0,0.0,0.0,147.87,0.0,0.0,City 11,Bloqueio por Saturação (Baixa Materialidade),16.457522,147.87,6.21,7.78
+Alterações de Preço,False,Bloqueado para demanda (Bloqueio por Saturação (Baixa Materialidade)),0.0,0.0,0.0,0.0,0.0,147.87,0.0,0.0,City 11,Bloqueio por Saturação (Baixa Materialidade),16.457522,147.87,6.21,7.78
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,147.87,0.0,0.0,City 11,Bloqueio por Saturação (Baixa Materialidade),16.457522,147.87,6.21,7.78
+Incentivos para Clientes,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,87.94,0.0,0.0,City 12,Defesa sem Guerra de Preço,11.507126,87.94,1.88,8.66
+Frete Grátis,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,87.94,0.0,0.0,City 12,Defesa sem Guerra de Preço,11.507126,87.94,1.88,8.66
+Alterações de Preço,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,87.94,0.0,0.0,City 12,Defesa sem Guerra de Preço,11.507126,87.94,1.88,8.66
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,87.94,0.0,0.0,City 12,Defesa sem Guerra de Preço,11.507126,87.94,1.88,8.66
+Incentivos para Clientes,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,70.38,0.0,0.0,City 13,Defesa sem Guerra de Preço,21.844448,70.38,2.84,8.72
+Frete Grátis,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,70.38,0.0,0.0,City 13,Defesa sem Guerra de Preço,21.844448,70.38,2.84,8.72
+Alterações de Preço,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,70.38,0.0,0.0,City 13,Defesa sem Guerra de Preço,21.844448,70.38,2.84,8.72
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,70.38,0.0,0.0,City 13,Defesa sem Guerra de Preço,21.844448,70.38,2.84,8.72
+Incentivos para Clientes,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,96.14,0.0,0.0,City 14,Defesa sem Guerra de Preço,3.442456,96.14,0.89,8.48
+Frete Grátis,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,96.14,0.0,0.0,City 14,Defesa sem Guerra de Preço,3.442456,96.14,0.89,8.48
+Alterações de Preço,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,96.14,0.0,0.0,City 14,Defesa sem Guerra de Preço,3.442456,96.14,0.89,8.48
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,96.14,0.0,0.0,City 14,Defesa sem Guerra de Preço,3.442456,96.14,0.89,8.48
+Incentivos para Clientes,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,86.18,0.0,0.0,City 15,Defesa sem Guerra de Preço,39.211583,86.18,0.07,7.29
+Frete Grátis,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,86.18,0.0,0.0,City 15,Defesa sem Guerra de Preço,39.211583,86.18,0.07,7.29
+Alterações de Preço,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,86.18,0.0,0.0,City 15,Defesa sem Guerra de Preço,39.211583,86.18,0.07,7.29
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,86.18,0.0,0.0,City 15,Defesa sem Guerra de Preço,39.211583,86.18,0.07,7.29
+Incentivos para Clientes,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,82.17,0.0,0.0,City 16,Defesa sem Guerra de Preço,21.953487,82.17,1.62,7.53
+Frete Grátis,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,82.17,0.0,0.0,City 16,Defesa sem Guerra de Preço,21.953487,82.17,1.62,7.53
+Alterações de Preço,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,82.17,0.0,0.0,City 16,Defesa sem Guerra de Preço,21.953487,82.17,1.62,7.53
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,82.17,0.0,0.0,City 16,Defesa sem Guerra de Preço,21.953487,82.17,1.62,7.53
+Incentivos para Clientes,False,Bloqueado para demanda (Destravamento de Capacidade (Saturada)),0.0,0.0,0.0,0.0,0.0,131.38,0.0,0.0,City 17,Destravamento de Capacidade (Saturada),162.615089,131.38,-1.34,7.38
+Frete Grátis,False,Bloqueado para demanda (Destravamento de Capacidade (Saturada)),0.0,0.0,0.0,0.0,0.0,131.38,0.0,0.0,City 17,Destravamento de Capacidade (Saturada),162.615089,131.38,-1.34,7.38
+Alterações de Preço,False,Bloqueado para demanda (Destravamento de Capacidade (Saturada)),0.0,0.0,0.0,0.0,0.0,131.38,0.0,0.0,City 17,Destravamento de Capacidade (Saturada),162.615089,131.38,-1.34,7.38
+Incentivos para Entregadores,True,OK,4.9977,76.6296,6.22,0.459,-4.5387,119.38,1.24,-0.91,City 17,Destravamento de Capacidade (Saturada),162.615089,131.38,-1.34,7.38
+Incentivos para Clientes,True,OK,0.2815,40.2075,2.6722,0.2063,-0.0752,82.62,9.49,-0.27,City 18,Turnaround Estrutural,41.916676,78.48,-4.69,7.72
+Frete Grátis,True,OK,0.3565,40.7436,2.7078,0.209,-0.1475,83.0,7.6,-0.41,City 18,Turnaround Estrutural,41.916676,78.48,-4.69,7.72
+Alterações de Preço,True,OK,0.5222,24.1245,1.6033,0.1238,-0.3985,80.78,3.07,-0.76,City 18,Turnaround Estrutural,41.916676,78.48,-4.69,7.72
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,78.48,0.0,0.0,City 18,Turnaround Estrutural,41.916676,78.48,-4.69,7.72
+Incentivos para Clientes,False,Bloqueado para demanda (Fora de Escopo por Materialidade),0.0,0.0,0.0,0.0,0.0,98.82,0.0,0.0,City 19,Fora de Escopo por Materialidade,2.842198,98.82,6.46,7.07
+Frete Grátis,False,Bloqueado para demanda (Fora de Escopo por Materialidade),0.0,0.0,0.0,0.0,0.0,98.82,0.0,0.0,City 19,Fora de Escopo por Materialidade,2.842198,98.82,6.46,7.07
+Alterações de Preço,False,Bloqueado para demanda (Fora de Escopo por Materialidade),0.0,0.0,0.0,0.0,0.0,98.82,0.0,0.0,City 19,Fora de Escopo por Materialidade,2.842198,98.82,6.46,7.07
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,98.82,0.0,0.0,City 19,Fora de Escopo por Materialidade,2.842198,98.82,6.46,7.07
+Incentivos para Clientes,True,OK,0.3869,77.3722,5.5956,0.5014,0.1145,88.0,14.46,0.3,City 2,Ataque Competitivo,87.773466,83.86,8.41,8.96
+Frete Grátis,True,OK,0.49,78.4038,5.6702,0.508,0.018,88.38,11.57,0.04,City 2,Ataque Competitivo,87.773466,83.86,8.41,8.96
+Alterações de Preço,True,OK,1.1177,74.2773,5.3717,0.4813,-0.6364,87.53,4.81,-0.57,City 2,Ataque Competitivo,87.773466,83.86,8.41,8.96
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,83.86,0.0,0.0,City 2,Ataque Competitivo,87.773466,83.86,8.41,8.96
+Incentivos para Clientes,False,Bloqueado para demanda (Destravamento de Capacidade (Saturada)),0.0,0.0,0.0,0.0,0.0,141.21,0.0,0.0,City 20,Destravamento de Capacidade (Saturada),635.776558,141.21,4.78,8.03
+Frete Grátis,False,Bloqueado para demanda (Destravamento de Capacidade (Saturada)),0.0,0.0,0.0,0.0,0.0,141.21,0.0,0.0,City 20,Destravamento de Capacidade (Saturada),635.776558,141.21,4.78,8.03
+Alterações de Preço,False,Bloqueado para demanda (Destravamento de Capacidade (Saturada)),0.0,0.0,0.0,0.0,0.0,141.21,0.0,0.0,City 20,Destravamento de Capacidade (Saturada),635.776558,141.21,4.78,8.03
+Incentivos para Entregadores,True,OK,30.3592,284.7261,24.3185,1.9528,-28.4064,129.21,0.8,-0.94,City 20,Destravamento de Capacidade (Saturada),635.776558,141.21,4.78,8.03
+Incentivos para Clientes,True,OK,0.5885,84.0762,6.452,0.5304,-0.0582,83.95,10.96,-0.1,City 3,Ataque Competitivo,101.20794,79.81,6.06,8.22
+Frete Grátis,True,OK,0.9784,111.8213,8.5812,0.7054,-0.2731,85.75,8.77,-0.28,City 3,Ataque Competitivo,101.20794,79.81,6.06,8.22
+Alterações de Preço,True,OK,1.2888,80.7131,6.1939,0.5091,-0.7797,83.48,4.81,-0.6,City 3,Ataque Competitivo,101.20794,79.81,6.06,8.22
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,79.81,0.0,0.0,City 3,Ataque Competitivo,101.20794,79.81,6.06,8.22
+Incentivos para Clientes,False,Bloqueado para demanda (Destravamento de Capacidade (Saturada)),0.0,0.0,0.0,0.0,0.0,129.05,0.0,0.0,City 4,Destravamento de Capacidade (Saturada),52.163074,129.05,3.39,7.78
+Frete Grátis,False,Bloqueado para demanda (Destravamento de Capacidade (Saturada)),0.0,0.0,0.0,0.0,0.0,129.05,0.0,0.0,City 4,Destravamento de Capacidade (Saturada),52.163074,129.05,3.39,7.78
+Alterações de Preço,False,Bloqueado para demanda (Destravamento de Capacidade (Saturada)),0.0,0.0,0.0,0.0,0.0,129.05,0.0,0.0,City 4,Destravamento de Capacidade (Saturada),52.163074,129.05,3.39,7.78
+Incentivos para Entregadores,True,OK,1.1871,30.3458,1.9952,0.1552,-1.0319,117.05,1.68,-0.87,City 4,Destravamento de Capacidade (Saturada),52.163074,129.05,3.39,7.78
+Incentivos para Clientes,False,Bloqueado para demanda (Bloqueio por Saturação (Baixa Materialidade)),0.0,0.0,0.0,0.0,0.0,120.67,0.0,0.0,City 5,Bloqueio por Saturação (Baixa Materialidade),18.665211,120.67,11.21,8.92
+Frete Grátis,False,Bloqueado para demanda (Bloqueio por Saturação (Baixa Materialidade)),0.0,0.0,0.0,0.0,0.0,120.67,0.0,0.0,City 5,Bloqueio por Saturação (Baixa Materialidade),18.665211,120.67,11.21,8.92
+Alterações de Preço,False,Bloqueado para demanda (Bloqueio por Saturação (Baixa Materialidade)),0.0,0.0,0.0,0.0,0.0,120.67,0.0,0.0,City 5,Bloqueio por Saturação (Baixa Materialidade),18.665211,120.67,11.21,8.92
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,120.67,0.0,0.0,City 5,Bloqueio por Saturação (Baixa Materialidade),18.665211,120.67,11.21,8.92
+Incentivos para Clientes,False,Estoura saturação máxima (100.6% > 100%),0.4559,56.992,4.0362,0.0,0.0,100.64,0.0,0.0,City 6,Ataque Focalizado (Alerta Capacidade),63.312576,96.5,7.09,7.83
+Frete Grátis,False,Estoura saturação máxima (102.4% > 100%),0.758,75.7994,5.3681,0.0,0.0,102.44,0.0,0.0,City 6,Ataque Focalizado (Alerta Capacidade),63.312576,96.5,7.09,7.83
+Alterações de Preço,False,Estoura saturação máxima (100.2% > 100%),0.8062,54.7124,3.8747,0.0,0.0,100.17,0.0,0.0,City 6,Ataque Focalizado (Alerta Capacidade),63.312576,96.5,7.09,7.83
+Incentivos para Entregadores,True,OK,2.0727,34.1952,2.4217,0.1896,-1.8831,84.5,1.17,-0.91,City 6,Ataque Focalizado (Alerta Capacidade),63.312576,96.5,7.09,7.83
+Incentivos para Clientes,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,88.88,0.0,0.0,City 7,Defesa sem Guerra de Preço,21.407272,88.88,6.16,7.93
+Frete Grátis,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,88.88,0.0,0.0,City 7,Defesa sem Guerra de Preço,21.407272,88.88,6.16,7.93
+Alterações de Preço,False,Bloqueado para demanda (Defesa sem Guerra de Preço),0.0,0.0,0.0,0.0,0.0,88.88,0.0,0.0,City 7,Defesa sem Guerra de Preço,21.407272,88.88,6.16,7.93
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,88.88,0.0,0.0,City 7,Defesa sem Guerra de Preço,21.407272,88.88,6.16,7.93
+Incentivos para Clientes,False,Bloqueado para demanda (Bloqueio por Saturação (Baixa Materialidade)),0.0,0.0,0.0,0.0,0.0,101.95,0.0,0.0,City 8,Bloqueio por Saturação (Baixa Materialidade),0.356264,101.95,2.23,7.9
+Frete Grátis,False,Bloqueado para demanda (Bloqueio por Saturação (Baixa Materialidade)),0.0,0.0,0.0,0.0,0.0,101.95,0.0,0.0,City 8,Bloqueio por Saturação (Baixa Materialidade),0.356264,101.95,2.23,7.9
+Alterações de Preço,False,Bloqueado para demanda (Bloqueio por Saturação (Baixa Materialidade)),0.0,0.0,0.0,0.0,0.0,101.95,0.0,0.0,City 8,Bloqueio por Saturação (Baixa Materialidade),0.356264,101.95,2.23,7.9
+Incentivos para Entregadores,False,Praça sem gargalo crítico de saturação,0.0,0.0,0.0,0.0,0.0,101.95,0.0,0.0,City 8,Bloqueio por Saturação (Baixa Materialidade),0.356264,101.95,2.23,7.9
+Incentivos para Clientes,False,Bloqueado para demanda (Destravamento de Capacidade (Saturada)),0.0,0.0,0.0,0.0,0.0,165.28,0.0,0.0,City 9,Destravamento de Capacidade (Saturada),60.758945,165.28,5.9,7.5
+Frete Grátis,False,Bloqueado para demanda (Destravamento de Capacidade (Saturada)),0.0,0.0,0.0,0.0,0.0,165.28,0.0,0.0,City 9,Destravamento de Capacidade (Saturada),60.758945,165.28,5.9,7.5
+Alterações de Preço,False,Bloqueado para demanda (Destravamento de Capacidade (Saturada)),0.0,0.0,0.0,0.0,0.0,165.28,0.0,0.0,City 9,Destravamento de Capacidade (Saturada),60.758945,165.28,5.9,7.5
+Incentivos para Entregadores,True,OK,2.7702,34.4965,2.324,0.1743,-2.5959,153.28,0.84,-0.94,City 9,Destravamento de Capacidade (Saturada),60.758945,165.28,5.9,7.5

@@ -1,0 +1,7 @@
+alavanca,viavel_operacionalmente,motivo_bloqueio,custo_alavanca_m,pedidos_incrementais_k,gmv_incremental_m,margem_contribuicao_incremental_m,operating_margin_incremental_m,saturacao_pos_pct,roi_gmv,roi_margem,cidade,arquetipo_operacional,gmv_base_m,saturacao_base_pct,margem_base_pct,margem_contribuicao_pct,selecionada,investimento_alocado_m
+Frete Grátis,True,OK,0.9784,111.8213,8.5812,0.7054,-0.2731,85.75,8.77,-0.28,City 3,Ataque Competitivo,101.20794,79.81,6.06,8.22,1,0.9784
+Incentivos para Entregadores,True,OK,4.9977,76.6296,6.22,0.459,-4.5387,119.38,1.24,-0.91,City 17,Destravamento de Capacidade (Saturada),162.615089,131.38,-1.34,7.38,1,4.9977
+Incentivos para Clientes,True,OK,0.3869,77.3722,5.5956,0.5014,0.1145,88.0,14.46,0.3,City 2,Ataque Competitivo,87.773466,83.86,8.41,8.96,1,0.3869
+Frete Grátis,True,OK,0.3565,40.7436,2.7078,0.209,-0.1475,83.0,7.6,-0.41,City 18,Turnaround Estrutural,41.916676,78.48,-4.69,7.72,1,0.3565
+Incentivos para Entregadores,True,OK,2.0727,34.1952,2.4217,0.1896,-1.8831,84.5,1.17,-0.91,City 6,Ataque Focalizado (Alerta Capacidade),63.312576,96.5,7.09,7.83,1,2.0727
+Incentivos para Entregadores,True,OK,1.1871,30.3458,1.9952,0.1552,-1.0319,117.05,1.68,-0.87,City 4,Destravamento de Capacidade (Saturada),52.163074,129.05,3.39,7.78,1,1.1871

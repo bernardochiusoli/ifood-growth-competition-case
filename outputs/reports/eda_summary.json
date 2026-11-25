@@ -1,0 +1,14 @@
+{
+  "total_cidades": 20,
+  "gmv_base_total_m": 1388.68,
+  "pedidos_base_total_k": 17844.02,
+  "ticket_medio_ponderado_rs": 77.82,
+  "margem_contribuicao_total_m": 110.68,
+  "margem_contribuicao_ponderada_pct": 7.97,
+  "margem_base_total_m": 55.36,
+  "margem_base_ponderada_pct": 3.99,
+  "total_entregadores": 36651,
+  "saturacao_media_pct": 106.31,
+  "ocupacao_media_pct": 55.15,
+  "share_medio_pct": 78.05
+}
