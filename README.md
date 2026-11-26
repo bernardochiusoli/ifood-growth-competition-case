@@ -1,9 +1,9 @@
-# iFood Business Case — Alocação de Investimentos (-R$ 10,00M na Operating Margin)
+# iFome Business Case — Alocação de Investimentos (-R$ 10,00M na Operating Margin)
 
 **Bernardo Akin Chiusoli Mendes**  
 Análise, Estratégia de Negócios e Engenharia de Dados
 
-Este projeto resolve um case de alocação de capital para crescimento do iFood: dado um portfólio real de 20 praças, como alocar investimentos em growth, market share, experiência do cliente e ROI, respeitando a exigência de gerar **exatamente -R$ 10.000.000,00 de impacto líquido na Operating Margin**.
+Este projeto resolve um case de alocação de capital para crescimento do iFome: dado um portfólio real de 20 praças, como alocar investimentos em growth, market share, experiência do cliente e ROI, respeitando a exigência de gerar **exatamente -R$ 10.000.000,00 de impacto líquido na Operating Margin**.
 
 A solução combina auditoria da base real, segmentação operacional, modelagem de impacto por alavanca, otimização restrita, análise de sensibilidade, guardrails operacionais e geração de entregáveis executivos.
 
@@ -163,7 +163,7 @@ As projeções devem ser validadas por teste controlado — geo-split ou switchb
 ## Estrutura do repositório
 
 ```text
-ifood-growth-competition-case/
+iFome-growth-competition-case/
 ├── data/
 │   ├── raw/
 │   │   └── Case_Competição_prático - Dados.csv
@@ -192,8 +192,8 @@ ifood-growth-competition-case/
 ### Ambiente local
 
 ```bash
-git clone [https://github.com/bernardochiusoli/ifood-growth-competition-case.git](https://github.com/bernardochiusoli/ifood-growth-competition-case.git)
-cd ifood-growth-competition-case
+git clone [https://github.com/bernardochiusoli/iFome-growth-competition-case.git](https://github.com/bernardochiusoli/iFome-growth-competition-case.git)
+cd iFome-growth-competition-case
 pip install -r requirements.txt
 jupyter lab
 ```
