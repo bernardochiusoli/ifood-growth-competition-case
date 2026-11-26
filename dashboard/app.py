@@ -1,78 +1,344 @@
+import os
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
 
-st.set_page_config(page_title="iFood Growth & Portfolio Allocation (-R$ 10M OM)", layout="wide")
+# ==============================================================================
+# 1. CONFIGURAÇÃO DA PÁGINA E IDENTIDADE VISUAL (IFOOD)
+# ==============================================================================
+st.set_page_config(
+    page_title="iFood Business Case — Alocação de R$ 10M na Operating Margin",
+    page_icon="🔴",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
-st.title("iFood Business Case — Alocação Otimizada (-R$ 10,00M na Operating Margin)")
-st.caption("Fonte de verdade: base real Case_Competição_prático - Dados.csv (20 praças) | Soma algébrica exata = -R$ 10.000.000,00")
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #F7F7F7;
+        color: #1A1A1A;
+    }
+    .author-banner {
+        background-color: #FFFFFF;
+        border: 1px solid #E6E6E6;
+        border-left: 5px solid #EA1D2C;
+        border-radius: 8px;
+        padding: 12px 18px;
+        margin-bottom: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+    }
+    .author-name {
+        color: #1A1A1A;
+        font-weight: 700;
+        font-size: 0.98rem;
+    }
+    .secondary-gray {
+        color: #666666;
+        font-size: 0.88rem;
+    }
+    .ifood-accent {
+        color: #EA1D2C;
+        font-weight: 700;
+        font-size: 0.88rem;
+    }
+    /* Evita truncamento excessivo nos cartões de métrica */
+    div[data-testid="stMetric"] {
+        background-color: #FFFFFF;
+        border: 1px solid #E6E6E6;
+        border-top: 4px solid #EA1D2C;
+        padding: 12px 14px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    div[data-testid="stMetricLabel"] > div {
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        color: #666666;
+        font-weight: 600;
+        font-size: 0.80rem;
+        line-height: 1.25;
+    }
+    div[data-testid="stMetricValue"] > div {
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        color: #1A1A1A;
+        font-weight: 700;
+        font-size: 1.15rem;
+        line-height: 1.25;
+    }
+    .footer-bar {
+        text-align: center;
+        color: #666666;
+        font-size: 0.85rem;
+        padding: 16px 0;
+        margin-top: 28px;
+        border-top: 1px solid #DFDFDF;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
-df_alloc = pd.read_csv("data/processed/base_alocacao_otimizada.csv")
-df_sens = pd.read_csv("outputs/reports/sensibilidade_cenarios.csv")
+# ==============================================================================
+# 2. CAMINHOS RELATIVOS, CACHE E FORMATAÇÃO
+# ==============================================================================
+DATA_PATH = os.path.join("data", "processed", "base_alocacao_otimizada.csv")
 
-# KPIs Principais
-c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
-c1.metric("Cidades Ativas", "5 praças")
-c2.metric("Investimento Bruto", "R$ 11,12M", "R$ 11.115.969,51")
-c3.metric("Pedidos Incr. Líquidos", "+352,70k", "352.703,38 pedidos")
-c4.metric("GMV Incremental", "+R$ 26,08M", "Múltiplo 2,35x")
-c5.metric("MC Incremental", "+R$ 2,10M", "R$ 0,1889 / R$ 1 custo")
-c6.metric("Custo Op. / SLA", "R$ 0,98M", "R$ 984.235,73")
-c7.metric("Impacto Líquido OM", "-R$ 10,00M", "OM: 3,99% -> 3,21%")
+CANDIDATOS_LOGO = [
+    os.path.join("assets", "ifood_logo.png"),
+    os.path.join("dashboard", "ifood_logo.png"),
+    "ifood_logo.png",
+]
+LOGO_PATH = next((p for p in CANDIDATOS_LOGO if os.path.exists(p)), None)
 
-st.info("Tese Executiva: O portfólio aloca R$ 11,12M de custo bruto para gerar R$ 26,08M de GMV incremental, 352,7 mil pedidos incrementais líquidos e R$ 2,10M de margem de contribuição incremental. Após custos operacionais e de SLA, o impacto líquido na Operating Margin é exatamente -R$ 10M. Nota: R$ 0,1889 de MC incremental por R$ 1 de custo bruto não representa ROI financeiro líquido positivo.")
 
-# Tabela Aprovada
-st.subheader("1. Tabela Final de Alocação Aprovada (Soma Algébrica = -R$ 10.000.000,00)")
-st.dataframe(df_alloc[[
-    "cidade", "classificacao", "alavanca", "custo_bruto_rs", "pedidos_brutos",
-    "canibalizacao_pct", "pedidos_incrementais_liquidos", "gmv_incremental_rs",
-    "mc_incremental_rs", "custo_operacional_sla_rs", "impacto_liquido_om_rs",
-    "mc_por_real_custo", "multiplo_gmv", "saturacao_base_pct", "saturacao_pos_investimento_pct", "justificativa"
-]], use_container_width=True)
+@st.cache_data
+def carregar_base(caminho: str) -> pd.DataFrame:
+    """Carrega a base processada usando caminho relativo."""
+    return pd.read_csv(caminho)
 
-# Painéis Especiais City 17 e City 6
-col_a, col_b = st.columns(2)
-with col_a:
-    st.subheader("2. Painel Especial — City 17 (Capacidade Logística)")
-    st.markdown("""
-    - **Papel:** Praça estrutural (GMV R$ 162,62M, OM base -1,34%) — recebe **capacidade logística de entregadores** (sem cupom genérico).
-    - **Capacidade base:** `1.524.881,30` pedidos equivalentes (`2.003.389,05 / 1,3138`).
-    - **Capacidade adicional criada:** `+180.000,00` pedidos equivalentes (`+11,80%` sobre a capacidade base; equivalente a `296.218,83` h a `R$ 9,00/h`).
-    - **Saturação:** Base `131,38%` | Sem intervenção `135,88%` | Pós-investimento `121,54%` (**-14,35 p.p.** vs. sem intervenção; **-9,84 p.p.** vs. base).
-    """)
-with col_b:
-    st.subheader("3. Painel Especial — City 6 (Guardrail de Saturação)")
-    st.markdown("""
-    - **Papel:** Ataque focalizado com **frete grátis** (sem aumento de capacidade de entregadores).
-    - **Saturação base -> pós-investimento:** `96,50%` -> `97,54%` (permanece abaixo do teto de `98%`).
-    - **Folga remanescente até o guardrail de 98%:** **0,46 p.p.** (`98,00% - 97,54%`).
-    - **Custo operacional/SLA incremental:** `R$ 161.000,00` (`8%` do custo bruto = `R$ 136.000,00` + `R$ 25.000,00` de SLA extra). Monitoramento semanal obrigatório.
-    """)
 
-# Drill-down por cidade
-st.subheader("4. Drill-Down por Cidade")
-cid_sel = st.selectbox("Selecione uma cidade ativa:", df_alloc["cidade"].tolist())
-r_cid = df_alloc[df_alloc["cidade"] == cid_sel].iloc[0]
-d1, d2, d3, d4 = st.columns(4)
-d1.metric("Custo Bruto", f"R$ {r_cid['custo_bruto_rs']:,.2f}")
-d2.metric("GMV Incremental", f"R$ {r_cid['gmv_incremental_rs']:,.2f}")
-d3.metric("MC Incremental", f"R$ {r_cid['mc_incremental_rs']:,.2f}")
-d4.metric("Impacto Líquido OM", f"R$ {r_cid['impacto_liquido_om_rs']:,.2f}")
-st.write(f"**Justificativa:** {r_cid['justificativa']}")
+def fmt_brl(valor: float) -> str:
+    """Formata valores em Reais no padrão brasileiro."""
+    sinal = "-" if float(valor) < 0 else ""
+    abs_val = abs(float(valor))
+    txt = f"{abs_val:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    return f"{sinal}R$ {txt}"
 
-# Simulador de Cenários
-st.subheader("5. Simulador de Cenários e Sensibilidade")
-st.dataframe(df_sens, use_container_width=True)
-vol_mult = st.slider("Variação de Volume Incremental (%)", -30, 30, 0, 5)
-custo_mult = st.slider("Variação de Custo Bruto e Op./SLA (%)", -20, 25, 0, 5)
-gmv_sim = 26079593.78 * (1 + vol_mult/100.0)
-mc_sim = 2100205.24 * (1 + vol_mult/100.0)
-custo_sim = 11115969.51 * (1 + custo_mult/100.0)
-op_sim = 984235.73 * (1 + custo_mult/100.0)
-om_sim = mc_sim - custo_sim - op_sim
-s1, s2, s3 = st.columns(3)
-s1.metric("GMV Incremental Simulado", f"R$ {gmv_sim/1e6:.2f}M")
-s2.metric("MC Incremental Simulada", f"R$ {mc_sim/1e6:.2f}M")
-s3.metric("Impacto Líquido OM Simulado", f"R$ {om_sim/1e6:.2f}M", delta=f"R$ {(om_sim + 10000000)/1e6:.2f}M vs. -R$ 10M")
+
+def fmt_num(valor: float, decimais: int = 2) -> str:
+    """Formata valores numéricos no padrão brasileiro."""
+    txt = f"{float(valor):,.{decimais}f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    return txt
+
+
+# ==============================================================================
+# 3. TRATAMENTO DE ERRO CASO O CSV NÃO EXISTIR
+# ==============================================================================
+if not os.path.exists(DATA_PATH):
+    st.title("iFood Business Case — Alocação de R$ 10M na Operating Margin")
+    st.markdown(
+        '<div class="author-banner">'
+        '<span class="author-name">Bernardo Akin Chiusoli Mendes</span>'
+        '<span class="secondary-gray">Análise, Estratégia de Negócios e Engenharia de Dados</span>'
+        "</div>",
+        unsafe_allow_html=True,
+    )
+    st.error(
+        f"**Arquivo não encontrado:** `{DATA_PATH}`.\n\n"
+        "Para gerar o arquivo necessário, execute os notebooks na ordem:\n"
+        "1. `notebooks/01_EDA.ipynb`\n"
+        "2. `notebooks/02_Segmentacao.ipynb`\n"
+        "3. `notebooks/03_Impacto_Alavancas.ipynb`\n"
+        "4. `notebooks/04_Otimizacao.ipynb`\n"
+        "5. `notebooks/05_Sensibilidade.ipynb`\n"
+        "6. `notebooks/06_Entregaveis.ipynb`"
+    )
+    st.stop()
+
+try:
+    df = carregar_base(DATA_PATH)
+except Exception as erro:
+    st.error(f"Erro ao ler `{DATA_PATH}`: {erro}")
+    st.stop()
+
+# ==============================================================================
+# 4. CABEÇALHO, LOGO, ASSINATURA E FILTROS
+# ==============================================================================
+col_logo, col_titulo = st.columns([1.2, 8.8], vertical_alignment="center")
+with col_logo:
+    if LOGO_PATH:
+        st.image(LOGO_PATH, width=90)
+    else:
+        st.markdown('<div class="ifood-accent">iFood</div>', unsafe_allow_html=True)
+
+with col_titulo:
+    st.title("iFood Business Case — Alocação de R$ 10M na Operating Margin")
+
+st.markdown(
+    '<div class="author-banner">'
+    '<div><span class="author-name">Bernardo Akin Chiusoli Mendes</span> '
+    '<span class="secondary-gray">· Visão Executiva do Portfólio</span></div>'
+    '<span class="ifood-accent">Fonte: data/processed/base_alocacao_otimizada.csv</span>'
+    "</div>",
+    unsafe_allow_html=True,
+)
+
+if LOGO_PATH:
+    st.sidebar.image(LOGO_PATH, width=95)
+st.sidebar.markdown("**Elaborado por:** Bernardo Akin Chiusoli Mendes")
+st.sidebar.markdown("---")
+st.sidebar.markdown("### Filtros")
+
+df_view = df.copy()
+
+cidades_opts = sorted(df_view["cidade"].dropna().astype(str).unique().tolist())
+cidades_sel = st.sidebar.multiselect("Cidade", options=cidades_opts, default=cidades_opts)
+if cidades_sel:
+    df_view = df_view[df_view["cidade"].astype(str).isin(cidades_sel)]
+
+alavancas_opts = sorted(df_view["alavanca"].dropna().astype(str).unique().tolist())
+alavancas_sel = st.sidebar.multiselect("Alavanca", options=alavancas_opts, default=alavancas_opts)
+if alavancas_sel:
+    df_view = df_view[df_view["alavanca"].astype(str).isin(alavancas_sel)]
+
+class_opts = sorted(df_view["classificacao"].dropna().astype(str).unique().tolist())
+class_sel = st.sidebar.multiselect("Classificação", options=class_opts, default=class_opts)
+if class_sel:
+    df_view = df_view[df_view["classificacao"].astype(str).isin(class_sel)]
+
+if df_view.empty:
+    st.warning("Nenhum registro corresponde aos filtros selecionados.")
+    st.stop()
+
+# ==============================================================================
+# 5. KPIS EXECUTIVOS (SOMENTE DADOS DA BASE FILTRADA)
+# ==============================================================================
+cidades_ativas = int(df_view["cidade"].nunique())
+custo_bruto_tot = float(df_view["custo_bruto_rs"].sum())
+pedidos_liq_tot = float(df_view["pedidos_incrementais_liquidos"].sum())
+gmv_inc_tot = float(df_view["gmv_incremental_rs"].sum())
+mc_inc_tot = float(df_view["mc_incremental_rs"].sum())
+om_liq_tot = float(df_view["impacto_liquido_om_rs"].sum())
+
+mc_por_real = (mc_inc_tot / custo_bruto_tot) if custo_bruto_tot != 0 else 0.0
+multiplo_gmv = (gmv_inc_tot / custo_bruto_tot) if custo_bruto_tot != 0 else 0.0
+
+k1, k2, k3, k4 = st.columns(4)
+k1.metric("Cidades ativas", f"{cidades_ativas}")
+k2.metric("Investimento bruto total", fmt_brl(custo_bruto_tot))
+k3.metric("Pedidos incrementais líquidos", fmt_num(pedidos_liq_tot, 2))
+k4.metric("GMV incremental", fmt_brl(gmv_inc_tot))
+
+k5, k6, k7, k8 = st.columns(4)
+k5.metric("MC incremental", fmt_brl(mc_inc_tot))
+k6.metric("Impacto líquido na OM", fmt_brl(om_liq_tot))
+k7.metric("MC / R$ 1 custo bruto", f"R$ {fmt_num(mc_por_real, 4)}")
+k8.metric("Múltiplo de GMV", f"{fmt_num(multiplo_gmv, 2)}x")
+
+st.markdown("---")
+
+# ==============================================================================
+# 6. GRÁFICOS DE BARRAS POR CIDADE
+# ==============================================================================
+g1, g2 = st.columns(2)
+
+with g1:
+    df_om = df_view.sort_values("impacto_liquido_om_rs", ascending=True)
+    fig_om = px.bar(
+        df_om,
+        x="cidade",
+        y="impacto_liquido_om_rs",
+        text=df_om["impacto_liquido_om_rs"].apply(fmt_brl),
+        title="Impacto líquido na Operating Margin por cidade",
+        labels={"cidade": "Cidade", "impacto_liquido_om_rs": "Impacto líquido na OM (R$)"},
+        color="cidade",
+        color_discrete_sequence=["#991B1B", "#EA1D2C", "#F87171", "#334155", "#64748B"],
+    )
+    fig_om.update_traces(textposition="outside", cliponaxis=False)
+    fig_om.update_layout(
+        showlegend=False,
+        plot_bgcolor="#FFFFFF",
+        paper_bgcolor="#FFFFFF",
+        font=dict(color="#1A1A1A"),
+        xaxis_title="",
+        yaxis_title="Impacto líquido na OM (R$)",
+    )
+    st.plotly_chart(fig_om, use_container_width=True)
+
+with g2:
+    df_gmv = df_view.sort_values("gmv_incremental_rs", ascending=False)
+    fig_gmv = px.bar(
+        df_gmv,
+        x="cidade",
+        y="gmv_incremental_rs",
+        text=df_gmv["gmv_incremental_rs"].apply(fmt_brl),
+        title="GMV incremental por cidade",
+        labels={"cidade": "Cidade", "gmv_incremental_rs": "GMV incremental (R$)"},
+        color="cidade",
+        color_discrete_sequence=["#EA1D2C", "#1E293B", "#475569", "#94A3B8", "#CBD5E1"],
+    )
+    fig_gmv.update_traces(textposition="outside", cliponaxis=False)
+    fig_gmv.update_layout(
+        showlegend=False,
+        plot_bgcolor="#FFFFFF",
+        paper_bgcolor="#FFFFFF",
+        font=dict(color="#1A1A1A"),
+        xaxis_title="",
+        yaxis_title="GMV incremental (R$)",
+    )
+    st.plotly_chart(fig_gmv, use_container_width=True)
+
+st.markdown("---")
+
+# ==============================================================================
+# 7. DESTAQUES: CITY 17 E CITY 6
+# ==============================================================================
+d17, d6 = st.columns(2)
+
+with d17:
+    with st.container(border=True):
+        st.subheader("City 17")
+        sub17 = df[df["cidade"].astype(str) == "City 17"]
+        if not sub17.empty:
+            r17 = sub17.iloc[0]
+            c1, c2 = st.columns(2)
+            c1.metric("Capacidade base", fmt_num(r17["capacidade_base_pedidos_equiv"], 2))
+            c2.metric("Capacidade adicional", fmt_num(r17["capacidade_adicional_pedidos_equiv"], 2))
+
+            c3, c4, c5 = st.columns(3)
+            c3.metric("Sat. base", f"{fmt_num(r17['saturacao_base_pct'], 2)}%")
+            c4.metric("Sat. sem interv.", f"{fmt_num(r17['saturacao_sem_intervencao_pct'], 2)}%")
+            c5.metric("Sat. pós-inv.", f"{fmt_num(r17['saturacao_pos_investimento_pct'], 2)}%")
+        else:
+            st.info("City 17 não encontrada na base.")
+
+with d6:
+    with st.container(border=True):
+        st.subheader("City 6")
+        sub6 = df[df["cidade"].astype(str) == "City 6"]
+        if not sub6.empty:
+            r6 = sub6.iloc[0]
+            s1, s2, s3 = st.columns(3)
+            s1.metric("Sat. base", f"{fmt_num(r6['saturacao_base_pct'], 2)}%")
+            s2.metric("Sat. pós-inv.", f"{fmt_num(r6['saturacao_pos_investimento_pct'], 2)}%")
+            s3.metric("Folga até 98%", f"{fmt_num(r6['folga_guardrail_98_pp'], 2)} p.p.")
+        else:
+            st.info("City 6 não encontrada na base.")
+
+st.markdown("---")
+
+# ==============================================================================
+# 8. TABELA DETALHADA
+# ==============================================================================
+st.subheader("Tabela Detalhada")
+
+df_tab = pd.DataFrame({
+    "Cidade": df_view["cidade"],
+    "Classificação": df_view["classificacao"],
+    "Alavanca": df_view["alavanca"],
+    "Custo bruto": df_view["custo_bruto_rs"].apply(fmt_brl),
+    "Pedidos incrementais líquidos": df_view["pedidos_incrementais_liquidos"].apply(lambda v: fmt_num(v, 2)),
+    "GMV incremental": df_view["gmv_incremental_rs"].apply(fmt_brl),
+    "MC incremental": df_view["mc_incremental_rs"].apply(fmt_brl),
+    "Custo operacional/SLA": df_view["custo_operacional_sla_rs"].apply(fmt_brl),
+    "Impacto líquido na Operating Margin": df_view["impacto_liquido_om_rs"].apply(fmt_brl),
+})
+
+st.dataframe(df_tab, use_container_width=True, hide_index=True)
+
+# ==============================================================================
+# 9. RODAPÉ
+# ==============================================================================
+st.markdown(
+    '<div class="footer-bar">Dados confidenciais | Pipeline Python | Análise reprodutível</div>',
+    unsafe_allow_html=True,
+)
