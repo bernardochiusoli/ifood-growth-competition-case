@@ -192,8 +192,8 @@ ifome-growth-case/
 ### Ambiente local
 
 ```bash
-git clone [https://github.com/bernardochiusoli/iFome-growth-competition-case.git](https://github.com/bernardochiusoli/iFome-growth-competition-case.git)
-cd iFome-growth-competition-case
+git clone [https://github.com/bernardochiusoli/ifome-growth-case.git](https://github.com/bernardochiusoli/iifome-growth-case.git)
+cd ifome-growth-case
 pip install -r requirements.txt
 jupyter lab
 ```
