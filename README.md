@@ -5,7 +5,7 @@ Análise, Estratégia de Negócios e Engenharia de Dados
 
 Este projeto resolve um case de alocação de capital para crescimento do iFome: dado um portfólio real de 20 praças, como alocar investimentos em growth, market share, experiência do cliente e ROI, respeitando a exigência de gerar **exatamente -R$ 10.000.000,00 de impacto líquido na Operating Margin**.
 
-A solução combina auditoria da base real, segmentação operacional, modelagem de impacto por alavanca, otimização restrita, análise de sensibilidade, guardrails operacionais e geração de entregáveis executivos.
+A solução combina auditoria da base, segmentação operacional, modelagem de impacto por alavanca, otimização restrita, análise de sensibilidade, guardrails operacionais e geração de entregáveis executivos.
 
 ## Tese executiva
 
