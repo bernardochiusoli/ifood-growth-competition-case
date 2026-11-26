@@ -197,7 +197,14 @@ cd ifood-growth-competition-case
 pip install -r requirements.txt
 jupyter lab
 ```
+## Dashboard executivo
 
+O projeto inclui um dashboard interativo em Streamlit para visualizar a alocação final, os KPIs do portfólio e os principais guardrails operacionais.
+
+### Execução local
+
+```bash
+streamlit run dashboard/app.py
 Execute os notebooks na ordem:
 
 ```text
