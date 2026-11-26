@@ -163,7 +163,7 @@ As projeções devem ser validadas por teste controlado — geo-split ou switchb
 ## Estrutura do repositório
 
 ```text
-delivery-growth-case/
+ifome-growth-case/
 ├── data/
 │   ├── raw/
 │   │   └── Case_Competição_prático - Dados.csv
