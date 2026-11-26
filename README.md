@@ -47,7 +47,7 @@ A análise utiliza exclusivamente a base real `Case_Competição_prático - Dado
 | Operating Margin ponderada | 3,99% |
 | Concentração de City 20 no GMV | 45,78% |
 
-Praças com saturação acima de 100%, como City 20 e City 17, exigem ações de capacidade logística em vez de estímulo genérico de demanda.
+Praças com saturação acima de 100% não recebem estímulo genérico de demanda (cupons, frete grátis ou descontos) para não degradar o SLA. Quando há gargalo estrutural com unit economics e prioridade de turnaround — como na City 17 (131,38% de saturação base) — a atuação ocorre via capacidade logística de entregadores, enquanto praças de alta saturação sem alocação ativa (como City 20, a 141,21%) permanecem bloqueadas.
 
 ## Abordagem analítica
 
@@ -72,7 +72,7 @@ A alocação considera quatro alavancas:
 - Frete grátis
 - Capacidade logística por meio de incentivos a entregadores
 
-A decisão prioriza praças com folga logística, margem saudável, espaço de market share e retorno marginal positivo. Cidades com saturação acima de 100% não recebem estímulo genérico de demanda.
+A decisão prioriza praças com folga logística, margem saudável, espaço de market share e retorno marginal positivo. Cidades com saturação acima de 100% não recebem estímulo genérico de demanda (exceto City 17, que recebe capacidade logística dedicada para destravar oferta sem estímulo de demanda).
 
 ## Alocação final
 
