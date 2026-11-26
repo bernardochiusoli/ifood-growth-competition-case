@@ -205,6 +205,7 @@ O projeto inclui um dashboard interativo em Streamlit para visualizar a aloca√ß√
 
 ```bash
 streamlit run dashboard/app.py
+```
 Execute os notebooks na ordem:
 
 ```text
