@@ -223,6 +223,6 @@ Abra os notebooks no Google Colab e execute-os na mesma ordem. O projeto utiliza
 
 ## Governança e confidencialidade
 
-Este repositório contém dados confidenciais de negócio. Não versionar credenciais, chaves de API, dados sensíveis adicionais ou outputs grandes no histórico do Git.
+Este repositório utiliza a base sintética fornecida no case. Não versionar credenciais, chaves de API, dados sensíveis adicionais ou outputs grandes no histórico do Git.
 
-O pipeline foi estruturado para garantir rastreabilidade entre a base real, os notebooks, o Excel analítico e a apresentação executiva.
+O pipeline foi estruturado para garantir rastreabilidade entre a base, os notebooks, o Excel analítico e a apresentação executiva.
